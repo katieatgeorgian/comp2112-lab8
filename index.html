@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Who Wants to be a Millionaire?</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/4.1.0/css/fabric.min.css"
+    />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <button
+          id="start"
+          class="startBtn"
+          :class="{startButton:selected}"
+          @click="startGame"
+        >
+          Click to Start
+        </button>
+      </div>
+      <main>
+        <div class="header">
+          <!-- Place to place messages or voting results etc -->
+        </div>
+        <h1 class="question">
+          {{ question }}
+        </h1>
+
+        <button id="a" class="item-a"><span>A:</span>{{ answer1 }}</button>
+        <button id="b" class="item-b"><span>B:</span>{{ answer2 }}</button>
+        <button id="c" class="item-c"><span>C:</span>{{ answer3 }}</button>
+        <button id="d" class="item-d"><span>D:</span>{{ answer4 }}</button>
+      </main>
+
+      <aside>
+        <section>
+          <button id="fifty_fifty">
+            <i class="ms-Icon ms-Icon--Contrast" aria-hidden="true"></i>
+          </button>
+          <button id="ask_audience">
+            <i class="ms-Icon ms-Icon--Group" aria-hidden="true"></i>
+          </button>
+          <button id="phone_friend">
+            <i class="ms-Icon ms-Icon--Phone" aria-hidden="true"></i>
+          </button>
+        </section>
+
+        <ul>
+          <li v-for="val in money">{{ val.level }}-{{ val.amount }}</li>
+        </ul>
+      </aside>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
