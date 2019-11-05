@@ -41,13 +41,13 @@ new Vue({
       this.triviaBlocks = data.results;
       console.log(this.triviaBlocks);
       this.question = this.triviaBlocks[0].question;
-
+      console.log(this.question);
+      //note: when I did line below without pushing each individually it seemed to affect the incorrect answers in the triviaBlocks
       // choices = this.triviaBlocks[0].incorrect_answers;
       choices.push(this.triviaBlocks[0].incorrect_answers[0]);
       choices.push(this.triviaBlocks[0].incorrect_answers[1]);
       choices.push(this.triviaBlocks[0].incorrect_answers[2]);
       choices.push(this.triviaBlocks[0].correct_answer);
-      console.log(choices);
 
       const randomChoices = _.shuffle(choices);
       console.log(randomChoices);
@@ -62,7 +62,8 @@ new Vue({
       this.music.play();
     },
     read() {
-      this.host.text = `${this.question}   A   ${this.answer1}   B   ${this.answer2}   C   ${this.answer3}   D   ${this.answer4}`;
+      this.host.rate = 0.6;
+      this.host.text = `${this.question}, A, ${this.answer1}, B, ${this.answer2}, C, ${this.answer3}, D, ${this.answer4}`;
       speechSynthesis.speak(this.host);
     }
   }

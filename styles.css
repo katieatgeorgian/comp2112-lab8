@@ -155,7 +155,8 @@ aside button {
 
 .startBtn {
   color: #fff;
+  font-size: 1.3em;
   background-color: #0062cc;
   border-color: #005cbf;
-  padding: 7px;
+  padding: 20px;
 }
